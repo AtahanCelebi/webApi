@@ -7,6 +7,7 @@ namespace ProductsAPI.Models
         public string FullName { get; set; } = null!;
     
         public DateTime DateAdded { get; set; }
+
     }
 
 }

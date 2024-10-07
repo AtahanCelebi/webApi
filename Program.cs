@@ -12,8 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 // Enable CORS
-builder.Services.AddCors(options => {
-    options.AddPolicy(MyAllowSpecificOrigins, policy => {
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(MyAllowSpecificOrigins, policy =>
+    {
         policy.WithOrigins("http://127.0.0.1:5500")
         .AllowAnyHeader()
         .AllowAnyMethod();
@@ -26,7 +28,8 @@ builder.Services.AddDbContext<MainDbContext>(options =>
 
 
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MainDbContext>();
-builder.Services.Configure<IdentityOptions>(options => {
+builder.Services.Configure<IdentityOptions>(options =>
+{
     options.Password.RequiredLength = 4;
     options.Password.RequireDigit = false;
 
@@ -36,12 +39,15 @@ builder.Services.Configure<IdentityOptions>(options => {
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5); // after x times timeout
 });
 
-builder.Services.AddAuthentication(x => {
+builder.Services.AddAuthentication(x =>
+{
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(x => {
+}).AddJwtBearer(x =>
+{
     x.RequireHttpsMetadata = false; // false ise http den gelen istekleri de kabul eder
-    x.TokenValidationParameters = new TokenValidationParameters {
+    x.TokenValidationParameters = new TokenValidationParameters
+    {
         ValidateIssuer = false, // eğer true olursa issuer kısmında ata.com'da gönderilmeli.
         ValidIssuer = "ata.com",
 
@@ -91,14 +97,13 @@ builder.Services.AddSwaggerGen(option =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+
+// GET UTC
+app.MapGet("time/utc", () => Results.Ok(DateTime.UtcNow));
 
 app.UseAuthentication();
 

@@ -30,7 +30,22 @@ namespace ProductsAPI.Controllers
         [HttpGet("preferences")]
         public async Task<IActionResult> GetRiskPreferences()
         {
-            var riskEntity = await _mainDbContext.Risks.ToListAsync();
+            // Check if _mainDbContext.Risks is not null
+            if (_mainDbContext.Risks == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Risk table not available.");
+            }
+
+            // Check if UserId is available
+            if (_userSession.UserId == null)
+            {
+                return BadRequest("User is not authenticated.");
+            }
+
+            // Fetch the risk preferences from the database
+            var riskEntity = await _mainDbContext.Risks
+                                 .Where(x => x.UserId == _userSession.UserId)
+                                 .ToListAsync();
 
             if (riskEntity == null || !riskEntity.Any())
             {
@@ -40,19 +55,14 @@ namespace ProductsAPI.Controllers
             return Ok(riskEntity);
         }
 
-        [HttpGet("abc")]
-        public async Task<IActionResult> GetProduct()
-        {
-            var result = await _risksService.List();
-            return this.ServiceResult(result);
-        }
-
-
 
         [HttpPost]
         public async Task<IActionResult> CreateRiskPreference(RiskPreferencesModel model)
         {
             if (model is null) return NotFound("Risk preference's fields couldn't empty!");
+
+            var getUser = await this._mainDbContext.Risks.Where(x => x.UserId == this._userSession.UserId).FirstOrDefaultAsync();
+            if (getUser != null) return NotFound("Risk preferences already have been created!");
 
             var riskEntity = new RiskEntity
             {

@@ -11,7 +11,7 @@ namespace ProductsAPI.Data
 
         }
 
-        public DbSet<RiskEntity> Risks { get; }
+        public DbSet<RiskEntity> Risks { get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

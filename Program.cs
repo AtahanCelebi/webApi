@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using ProductsAPI.Data;
 using ProductsAPI.Models;
+using ProductsAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -19,9 +21,11 @@ builder.Services.AddCors(options => {
 });
 
 // Add services to the container.
-builder.Services.AddDbContext<ProductsContext>(x => x.UseSqlite("Data Source=products.db"));
+builder.Services.AddDbContext<MainDbContext>(options =>
+    options.UseSqlite("Data Source=products.db;Pooling=False;Default Timeout=30"));
 
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<ProductsContext>();
+
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MainDbContext>();
 builder.Services.Configure<IdentityOptions>(options => {
     options.Password.RequiredLength = 4;
     options.Password.RequireDigit = false;
@@ -49,6 +53,10 @@ builder.Services.AddAuthentication(x => {
         ValidateLifetime = true // eğer true olmazsa süre önemsemeden validate eder, expire olmaz
     };
 });
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IUserSession, UserSession>();
+builder.Services.AddScoped<IRiskServices, RiskServices>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

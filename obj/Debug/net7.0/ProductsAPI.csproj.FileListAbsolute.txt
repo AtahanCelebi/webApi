@@ -81,3 +81,5 @@
 /Users/apple/Desktop/webApi/ProductsAPI/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/apple/Desktop/webApi/ProductsAPI/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
 /Users/apple/Desktop/webApi/ProductsAPI/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/apple/Desktop/webApi/ProductsAPI/bin/Debug/net7.0/Mapster.dll
+/Users/apple/Desktop/webApi/ProductsAPI/bin/Debug/net7.0/Mapster.Core.dll

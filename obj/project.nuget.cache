@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ZPa4tePQ/Awx5roXRjbJhF2WklpF8A4FRe1o2HSuiuhmd/tXxVMjMghPSzfNs9gBwiCSJkWzu/2AIdY0RHXU1Q==",
+  "dgSpecHash": "iTkg08cgQUxPJKMyKomI8OIp1rZBnctDnHYLLVSJjN9lXvuP82zMpDYLTDWyLFbCONEBGE3Ou/ZWGpe1isIM5A==",
   "success": true,
   "projectFilePath": "/Users/apple/Desktop/webApi/ProductsAPI/ProductsAPI.csproj",
   "expectedPackageFiles": [
     "/Users/apple/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/apple/.nuget/packages/mapster/7.4.0/mapster.7.4.0.nupkg.sha512",
+    "/Users/apple/.nuget/packages/mapster.core/1.2.1/mapster.core.1.2.1.nupkg.sha512",
     "/Users/apple/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/7.0.12/microsoft.aspnetcore.authentication.jwtbearer.7.0.12.nupkg.sha512",
     "/Users/apple/.nuget/packages/microsoft.aspnetcore.cryptography.internal/7.0.12/microsoft.aspnetcore.cryptography.internal.7.0.12.nupkg.sha512",
     "/Users/apple/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/7.0.12/microsoft.aspnetcore.cryptography.keyderivation.7.0.12.nupkg.sha512",

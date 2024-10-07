@@ -7,7 +7,7 @@ on:
     - master
 
 env:
-  AZURE_WEBAPP_NAME: ProductsAPI
+  AZURE_WEBAPP_NAME: quantai
   AZURE_WEBAPP_PACKAGE_PATH: "./publish"
 
 jobs:

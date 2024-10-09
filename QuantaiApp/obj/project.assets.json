@@ -2253,11 +2253,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/apple/Desktop/webApi/ProductsAPI/ProductsAPI.csproj",
+      "projectUniqueName": "/Users/apple/webApi2/webApi/QuantaiApp/ProductsAPI.csproj",
       "projectName": "ProductsAPI",
-      "projectPath": "/Users/apple/Desktop/webApi/ProductsAPI/ProductsAPI.csproj",
+      "projectPath": "/Users/apple/webApi2/webApi/QuantaiApp/ProductsAPI.csproj",
       "packagesPath": "/Users/apple/.nuget/packages/",
-      "outputPath": "/Users/apple/Desktop/webApi/ProductsAPI/obj/",
+      "outputPath": "/Users/apple/webApi2/webApi/QuantaiApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/apple/.nuget/NuGet/NuGet.Config"

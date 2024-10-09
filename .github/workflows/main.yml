@@ -1,4 +1,4 @@
-name: Publish 🚀
+
 
 on:
   workflow_dispatch:
@@ -30,7 +30,7 @@ jobs:
         
       - name: Publish
         run: dotnet publish ./ProductsAPI.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
-
+        
       - name: Deployment
         uses: azure/webapps-deploy@v2
         with:

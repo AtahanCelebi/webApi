@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nBG2hxoYoN2LhpMcfQ63ZS1eWA/SWVTcI0d1rmzmGN6xmZRr1uv/SJnkOToHc/+UVGSwV3e0kU0YmW0m4TTLCA==",
+  "dgSpecHash": "PZ8yzwjAZDMRk6kXnXSGod0z8AhlG1Px1umFjCwlgFcUrFrL4wEZOaH6ax/nOfLnolLPUCXtuPygfXLAHhGhRg==",
   "success": true,
-  "projectFilePath": "/Users/apple/webApi2/webApi/QuantaiApp/ProductsAPI.csproj",
+  "projectFilePath": "/Users/apple/webApi2/webApi/ProductsAPI.csproj",
   "expectedPackageFiles": [
     "/Users/apple/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/apple/.nuget/packages/mapster/7.4.0/mapster.7.4.0.nupkg.sha512",

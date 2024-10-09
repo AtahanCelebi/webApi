@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/apple/webApi2/webApi/QuantaiApp/ProductsAPI.csproj": {}
+    "/Users/apple/webApi2/webApi/ProductsAPI.csproj": {}
   },
   "projects": {
-    "/Users/apple/webApi2/webApi/QuantaiApp/ProductsAPI.csproj": {
+    "/Users/apple/webApi2/webApi/ProductsAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/apple/webApi2/webApi/QuantaiApp/ProductsAPI.csproj",
+        "projectUniqueName": "/Users/apple/webApi2/webApi/ProductsAPI.csproj",
         "projectName": "ProductsAPI",
-        "projectPath": "/Users/apple/webApi2/webApi/QuantaiApp/ProductsAPI.csproj",
+        "projectPath": "/Users/apple/webApi2/webApi/ProductsAPI.csproj",
         "packagesPath": "/Users/apple/.nuget/packages/",
-        "outputPath": "/Users/apple/webApi2/webApi/QuantaiApp/obj/",
+        "outputPath": "/Users/apple/webApi2/webApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/apple/.nuget/NuGet/NuGet.Config"

@@ -23,7 +23,7 @@ jobs:
           dotnet-version: '6.0.x'
           
       - name: Restore
-        run: dotnet restore ./ProductsAPI.sln
+        run: dotnet restore ./QuantaiApp/ProductsAPI.sln
         
       - name: Build
         run: dotnet build ./QuantaiApp/ProductsAPI.sln --configuration Release --no-restore

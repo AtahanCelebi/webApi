@@ -39,7 +39,7 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -54,3 +54,10 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6A87B59B62D94C0AA4E01C20EA14F051 }}
+
+      # Yeni adım: Azure SQL veritabanını güncelleme
+      - name: Apply EF Migrations to Azure SQL Database
+        run: dotnet ef database update --no-build
+        env:
+          # Connection string'i GitHub Secrets'ten çekiyoruz
+          ConnectionStrings__DefaultConnection: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}

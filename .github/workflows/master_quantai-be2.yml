@@ -18,13 +18,9 @@ jobs:
         with:
           dotnet-version: '8.x'
 
-      # dotnet-ef aracını global olarak yükleme
-      - name: Install Entity Framework Core Tools globally
-        run: dotnet tool install --global dotnet-ef
-
-      # .dotnet/tools dizinini PATH'e ekleme
-      - name: Add .NET Core tools to PATH
-        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+      # Yerel araçları geri yüklemek için dotnet tool restore
+      - name: Restore local tools
+        run: dotnet tool restore
 
       # Projeyi build et
       - name: Build with dotnet

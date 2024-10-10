@@ -2,6 +2,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ProductsAPI.Data;
@@ -23,9 +24,11 @@ builder.Services.AddCors(options =>
 });
 
 // Add services to the container.
-builder.Services.AddDbContext<MainDbContext>(options =>
-    options.UseSqlite("Data Source=products.db;Pooling=False;Default Timeout=30"));
+/*builder.Services.AddDbContext<MainDbContext>(options =>
+    options.UseSqlite("Data Source=products.db;Pooling=False;Default Timeout=30"));*/
 
+builder.Services.AddDbContext<MainDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MainDbContext>();
 builder.Services.Configure<IdentityOptions>(options =>

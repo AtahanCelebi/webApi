@@ -16,19 +16,25 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '7.x'
+          dotnet-version: '7.x'  # .NET 7 sürümü
 
-      # Yerel araçları geri yüklemek için dotnet tool restore
-      - name: Restore local tools
+      # Global dotnet-ef aracını yükle
+      - name: Install Entity Framework Core Tools globally
         run: dotnet tool install --global dotnet-ef --version 7
+
+      # Yüklenen dotnet araçlarını PATH'e ekle
+      - name: Add .NET Core tools to PATH
+        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
       # Projeyi build et
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
+      # Projeyi publish et
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
+      # Yayınlanan uygulamayı deployment için artifact olarak yükle
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -43,11 +49,13 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+      # Build job'dan artifact'i indir
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: .net-app
       
+      # Azure Web App'e deploy et
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
@@ -57,7 +65,7 @@ jobs:
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6A87B59B62D94C0AA4E01C20EA14F051 }}
 
-      # Veritabanı migration'larını uygulamak için EF Tools'u kullanma
+      # Veritabanı migration'larını uygula
       - name: Apply EF Migrations to Azure SQL Database
         run: dotnet ef database update --no-build
         env:

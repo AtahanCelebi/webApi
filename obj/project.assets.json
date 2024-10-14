@@ -4402,11 +4402,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/apple/webApi2/webApi/ProductsAPI.csproj",
+      "projectUniqueName": "/Users/apple/Desktop/webApi/ProductApi2/webApi/ProductsAPI.csproj",
       "projectName": "ProductsAPI",
-      "projectPath": "/Users/apple/webApi2/webApi/ProductsAPI.csproj",
+      "projectPath": "/Users/apple/Desktop/webApi/ProductApi2/webApi/ProductsAPI.csproj",
       "packagesPath": "/Users/apple/.nuget/packages/",
-      "outputPath": "/Users/apple/webApi2/webApi/obj/",
+      "outputPath": "/Users/apple/Desktop/webApi/ProductApi2/webApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/apple/.nuget/NuGet/NuGet.Config"

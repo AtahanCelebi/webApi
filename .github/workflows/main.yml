@@ -7,7 +7,7 @@ on:
     - master
 
 env:
-  AZURE_WEBAPP_NAME: quantai-be
+  AZURE_WEBAPP_NAME: quantai-web-database
   AZURE_WEBAPP_PACKAGE_PATH: "./publish"
 
 jobs:
@@ -20,16 +20,16 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '7.0.x'
           
       - name: Restore
-        run: dotnet restore ./QuantaiApp/ProductsAPI.sln
+        run: dotnet restore .ProductsAPI.sln
         
       - name: Build
-        run: dotnet build ./QuantaiApp/ProductsAPI.sln --configuration Release --no-restore
+        run: dotnet build .ProductsAPI.sln --configuration Release --no-restore
         
       - name: Publish
-        run: dotnet publish ./QuantaiApp/ProductsAPI.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+        run: dotnet publish .ProductsAPI.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
         
       - name: Deployment
         uses: azure/webapps-deploy@v2

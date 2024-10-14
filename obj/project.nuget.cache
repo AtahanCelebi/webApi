@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wdZZq3ABik76qraMAJlg91jKpZ0OHR6nHI1CGyifMPejcynV6XA6IHfDkW9Hq1o7Qtw4PW32+7xCRZNNqoRtcA==",
+  "dgSpecHash": "UjAYw0aOYX6VGTeAnI2R3nJDteeENaUv0iENlrofDGiuP4TKlilCDuf66SFBW0mTeuuLCMg+RKU9nu8FYdWWig==",
   "success": true,
-  "projectFilePath": "/Users/apple/webApi2/webApi/ProductsAPI.csproj",
+  "projectFilePath": "/Users/apple/Desktop/webApi/ProductApi2/webApi/ProductsAPI.csproj",
   "expectedPackageFiles": [
     "/Users/apple/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/Users/apple/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",

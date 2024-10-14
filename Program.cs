@@ -27,8 +27,9 @@ builder.Services.AddCors(options =>
 /*builder.Services.AddDbContext<MainDbContext>(options =>
     options.UseSqlite("Data Source=products.db;Pooling=False;Default Timeout=30"));*/
 
+// Add services to the container.
 builder.Services.AddDbContext<MainDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AzureSqlConnection")));
 
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MainDbContext>();
 builder.Services.Configure<IdentityOptions>(options =>
